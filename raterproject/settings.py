@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'raterproject',
+    'raterapi'
 ]
 
 REST_FRAMEWORK = {
