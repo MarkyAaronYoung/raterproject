@@ -1,4 +1,4 @@
-from djang.db import from django.db import models
+from django.db import models
 from django.db.models.deletion import CASCADE
 
 class Game(models.Model):
@@ -9,6 +9,5 @@ class Game(models.Model):
     play_time = models.CharField(max_length=25)
     age_rec = models.CharField(max_length=25)
     category = models.ForeignKey("Category", on_delete=CASCADE)
-    game_pic = models.ImageField(_(""), upload_to=None, height_field=None, width_field=None, max_length=None))
+    game_pic = models.ImageField()
     rating = models.IntegerField()
-    review = models.ForeignKey("Review", on_delete=CASCADE)
