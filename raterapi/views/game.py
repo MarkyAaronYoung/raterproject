@@ -20,3 +20,23 @@ class Games(ViewSet):
 
         category = Category.objects.get(pk=request.data["categoryId"])
         game.category = category     
+
+        try:
+            game.save()
+            serializer = GameSerializer(game, context={'request': request})
+            return Response(serializer.data)
+
+        except ValidationError as ex:
+            return Response({"reason": ex.message}, status=status.HTTP_400_BAD_REQUEST)
+
+    def retrieve(self, request, pk=None):
+        """Handle GET requests for single game
+        Returns:
+            Response -- JSON serialized game instance
+        """
+        try:
+            game = Game.objects.get(pk=pk)
+            serializer = GameSerializer(game, context={'request': request})
+            return Response(serializer.data)
+        except Exception as ex:
+            return HttpResponseServerError(ex)        
