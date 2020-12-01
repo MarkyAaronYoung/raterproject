@@ -3,7 +3,7 @@ from django.db.models.deletion import CASCADE
 
 class Game(models.Model):
     title = models.CharField(max_length=75)
-    description = models.CharField(max_length=250)
+    description = models.TextField(null=True)
     designer = models.CharField(max_length=50)
     year_released = models.IntegerField()
     number_of_players = models.IntegerField()

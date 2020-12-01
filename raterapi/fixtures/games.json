@@ -1,0 +1,18 @@
+[
+    {
+        "model": "raterapi.game",
+        "pk": 1,
+        "fields": {
+            "title": "Scream of the Butterfly",
+            "description": "Acid Bath inspired first person murder party",
+            "designer": "Hasbro",
+            "year_released": 1993,
+            "number_of_players": 4,
+            "play_time": "65 minutes",
+            "age_rec": "14+ ages",
+            "category": 10,
+            "game_pic": "https://riffipedia.fandom.com/wiki/Acid_Bath?file=Acidbath.jpg",
+            "rating": 9
+        }
+    }
+]
