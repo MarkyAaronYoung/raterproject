@@ -8,6 +8,12 @@ from rest_framework import status
 from raterapi.models import Game, Player, Category, Review
 
 class Games(ViewSet):
+    def list(self, request):
+        games = Game.objects.all()
+
+        serializer = GameSerializer(games, many=True, context={'request': request})
+        return Response(serializer.data)
+
     def create(self, request):
         game = Game()
         game.title = request.data["title"]
@@ -40,3 +46,13 @@ class Games(ViewSet):
             return Response(serializer.data)
         except Exception as ex:
             return HttpResponseServerError(ex)        
+
+class GameSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Game
+        url = serializers.HyperlinkedIdentityField(
+            view_name='game',
+            lookup_field='id'
+        )
+        fields = ('id', 'url', 'title', 'designer', 'description', 'year_released', 'number_of_players', 'play_time', 'age_rec', 'category', 'game_pic', 'rating')
+        depth = 1
