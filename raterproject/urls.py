@@ -15,6 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework import routers
+
+from raterapi.views import GamesViewSet
+from raterapi.views import ReviewsViewSet
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
