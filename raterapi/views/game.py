@@ -7,7 +7,7 @@ from rest_framework import serializers
 from rest_framework import status
 from raterapi.models import Game, Player, Category, Review
 
-class Games(ViewSet):
+class GamesViewSet(ViewSet):
     def list(self, request):
         games = Game.objects.all()
 
