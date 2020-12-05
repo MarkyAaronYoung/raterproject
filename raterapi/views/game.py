@@ -23,6 +23,7 @@ class Games(ViewSet):
         game.play_time = request.data["playTime"]
         game.game_pic = request.data["gamePic"]
         game.rating = request.data["rating"]
+        game.designer = request.data["designer"]
 
         category = Category.objects.get(pk=request.data["categoryId"])
         game.category = category     
